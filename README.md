@@ -37,7 +37,7 @@ Este proyecto es una aplicación de autenticación que utiliza React para el fro
 
 2. Inicia la aplicación frontend:
    ```
-   cd frontend
+   cd client
    npm run dev
    ```
 
@@ -52,7 +52,7 @@ Este proyecto es una aplicación de autenticación que utiliza React para el fro
 ## Estructura del Proyecto
 
 - `backend`: Contiene el código del servidor Node.js con Express y MongoDB.
-- `frontend`: Contiene el código de la aplicación React.
+- `client`: Contiene el código de la aplicación React.
 
 ## Dependencias
 
@@ -68,9 +68,3 @@ Este proyecto es una aplicación de autenticación que utiliza React para el fro
 - `react-dom`
 - `react-router-dom`
 - `react-scripts`
-
-## Contribuciones
-Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request para discutir cualquier cambio que te gustaría hacer.
-
-## Licencia
-Este proyecto está bajo la Licencia MIT.
