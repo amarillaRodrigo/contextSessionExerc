@@ -23,7 +23,7 @@ Este proyecto es una aplicación de autenticación que utiliza React para el fro
 
 3. Instala las dependencias del frontend:
    ```
-   cd frontend
+   cd client
    npm install
    ```
 
