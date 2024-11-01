@@ -11,8 +11,8 @@ Este proyecto es una aplicación de autenticación que utiliza React para el fro
 
 1. Clona el repositorio:
    ```
-   git clone https://github.com/tu-usuario/tu-repositorio.git
-   cd tu-repositorio
+   git clone https://github.com/amarillaRodrigo/contextSessionExerc
+   cd contextSessionExerc
    ```
 
 2. Instala las dependencias del backend:
