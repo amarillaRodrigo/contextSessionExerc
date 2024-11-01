@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSession } from "../context/sessionProvider.jsx";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-  const { login, loading, error } = useSession();
+  const { login, loading, error, session } = useSession();
   const [credentials, setCredentials] = useState({
-    username: "",
-    password: "",
+    email: "",
+    contrasenia: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,21 +20,27 @@ const Login = () => {
     login(credentials);
   };
 
+  useEffect(() => {
+    if (session) {
+      navigate("/home");
+    }
+  }, [session, navigate]);
+
   return (
     <div>
       <h2>Iniciar Sesión</h2>
       <form onSubmit={handleSubmit}>
         <input
-          type="text"
-          name="username"
-          value={credentials.username}
+          type="email"
+          name="email"
+          value={credentials.email}
           onChange={handleChange}
-          placeholder="Usuario"
+          placeholder="Email"
         />
         <input
           type="password"
-          name="password"
-          value={credentials.password}
+          name="contrasenia"
+          value={credentials.contrasenia}
           onChange={handleChange}
           placeholder="Contraseña"
         />

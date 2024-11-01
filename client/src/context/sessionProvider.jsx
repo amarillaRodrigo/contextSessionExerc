@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from "react";
+import React, { createContext, useState, useContext, useEffect } from "react";
 
 const SessionContext = createContext();
 
@@ -7,11 +7,18 @@ export const SessionProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  useEffect(() => {
+    const storedSession = localStorage.getItem("session");
+    if (storedSession) {
+      setSession(JSON.parse(storedSession));
+    }
+  }, []);
+
   const login = async (credentials) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch("https://backend.example.com/auth", {
+      const response = await fetch("http://localhost:5000/auth", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(credentials),
@@ -19,6 +26,7 @@ export const SessionProvider = ({ children }) => {
       const data = await response.json();
       if (response.ok) {
         setSession(data);
+        localStorage.setItem("session", JSON.stringify(data));
       } else {
         setError(data.message);
       }
@@ -31,6 +39,7 @@ export const SessionProvider = ({ children }) => {
 
   const logout = () => {
     setSession(null);
+    localStorage.removeItem("session");
   };
 
   return (
